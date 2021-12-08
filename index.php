@@ -32,5 +32,13 @@ $stripe = new \Stripe\StripeClient($secretKey);
 // echo $charge;
 
 // お店の残高の取得
-$balance = $stripe->balance->retrieve();
-echo $balance;
+// $balance = $stripe->balance->retrieve();
+// echo $balance;
+
+// 支払いの各データ
+// "amount": 合計金額,
+// status": "canceled”キャンセル、 "succeeded”支払い成功
+// charges: 支払い関係のオブジェクト
+// cancellation_reason キャンセル理由
+$payment_intents = $stripe->paymentIntents->all();
+echo $payment_intents;
