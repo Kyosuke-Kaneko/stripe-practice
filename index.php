@@ -40,5 +40,8 @@ $stripe = new \Stripe\StripeClient($secretKey);
 // status": "canceled”キャンセル、 "succeeded”支払い成功
 // charges: 支払い関係のオブジェクト
 // cancellation_reason キャンセル理由
+// count($payment_intents->data); 決済回数
+// date("Y/m/d",'1638421048'); UNIX時間の変換
 $payment_intents = $stripe->paymentIntents->all();
-echo $payment_intents;
+// echo $payment_intents;
+// echo count($payment_intents->data);
