@@ -20,20 +20,20 @@ $stripe = new \Stripe\StripeClient($secretKey);
 
 
 // 支払いの完了
-$charge = $stripe->charges->create([
-  'amount' => 99000,
-  'currency' => 'jpy',
-  'source' => 'tok_visa', // obtained with Stripe.js
-  'description' => 'エストラCharge (created for API docs)',
-], [
-  'idempotency_key' => '202112167'
-  // 冪等性のためのキー、同一の決済しかない時にひつよう
-]);
-echo $charge;
+// $charge = $stripe->charges->create([
+//   'amount' => 99000,
+//   'currency' => 'jpy',
+//   'source' => 'tok_visa', // obtained with Stripe.js
+//   'description' => 'エストラCharge (created for API docs)',
+// ], [
+//   'idempotency_key' => '202112167'
+//   // 冪等性のためのキー、同一の決済しかない時にひつよう
+// ]);
+// echo $charge;
 
 // お店の残高の取得
-$balance = $stripe->balance->retrieve();
-echo $balance;
+// $balance = $stripe->balance->retrieve();
+// echo $balance;
 
 // 支払いの各データ
 // "amount": 合計金額,
@@ -46,20 +46,21 @@ echo $balance;
 // echo $payment_intents;
 // echo count($payment_intents->data);
 
-// 顧客情報取得
-$accounts = $stripe->accounts->retrieve("id情報");
-echo $accounts;
+// // 顧客情報取得
+// $accounts = $stripe->accounts->retrieve("id情報");
+// echo $accounts;
 
 // 送金先ようアカウントの作成
 // $connenctedAccount = $stripe->accounts->create([
 //   'type' => 'custom',
-//   'country' => 'US',
+//   'country' => 'JP',
 //   'business_type' => 'individual',
-//   'email' => 'sam.key@example.com',
+//   'email' => 'KW.key@example.com',
 //   'capabilities' => [
 //     'card_payments' => ['requested' => true],
 //     'transfers' => ['requested' => true],
 //   ],
+//   'tos_acceptance' => ['date' => 1609798905, 'ip' => '8.8.8.8'],
 // ]);
 // echo $connenctedAccount;
 // 
